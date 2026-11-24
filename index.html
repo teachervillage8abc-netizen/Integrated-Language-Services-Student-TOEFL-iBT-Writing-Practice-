@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrated Language Services | TOEFL iBT® Writing Practice — Student Edition</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            etsnavy: '#0F2537',
+            etsblue: '#16324F',
+            etsteal: '#0B6E7D',
+            etsteallight: '#E6F3F5',
+            etscanvas: '#F5F7FA',
+            etsborder: '#D8E0E8',
+            etsgold: '#B45309',
+            etsgoldbg: '#FEF3C7',
+            etssuccess: '#065F46',
+            etssuccessbg: '#ECFDF5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Merriweather', 'Georgia', 'serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #F5F7FA;
+      color: #0F2537;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-academic {
+      font-family: 'Merriweather', Georgia, serif;
+    }
+
+    /* Official ETS-style top bar gradient */
+    .ets-header-bar {
+      background: linear-gradient(90deg, #0F2537 0%, #16324F 100%);
+    }
+
+    /* Tile tactile feel */
+    .word-tile {
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+      user-select: none;
+    }
+    .word-tile:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(15, 37, 55, 0.12);
+    }
+    .word-tile:active:not(:disabled) {
+      transform: translateY(0px);
+    }
+
+    /* Positional Gap Slots (Authentic TOEFL iBT Build-a-Sentence) */
+    .gap-slot {
+      min-width: 72px;
+      height: 38px;
+      border-bottom: 2.5px solid #94A3B8;
+      background-color: #F8FAFC;
+      border-radius: 6px 6px 2px 2px;
+      transition: all 0.15s ease;
+    }
+    .gap-slot:hover {
+      border-bottom-color: #0B6E7D;
+      background-color: #E6F3F5;
+    }
+    .gap-slot.active-target {
+      border-bottom: 3px solid #0B6E7D;
+      background-color: #E6F3F5;
+      box-shadow: 0 0 0 2px rgba(11, 110, 125, 0.2);
+    }
+    .gap-slot.drag-over {
+      border-bottom: 3px solid #0F2537;
+      background-color: #DBEAFE;
+      transform: scale(1.03);
+    }
+
+    /* Level reveal card animation */
+    @keyframes revealSlide {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .reveal-card {
+      animation: revealSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Annotation highlights in model answers */
+    .hl-comma {
+      background-color: #FEF3C7;
+      border-bottom: 2px solid #D97706;
+      padding: 0 3px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .hl-sub {
+      background-color: #E0F2FE;
+      border-bottom: 2px solid #0284C7;
+      padding: 0 3px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .hl-agree {
+      background-color: #ECFDF5;
+      border-bottom: 2px solid #059669;
+      padding: 0 3px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #EDF2F7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- OFFICIAL ETS-INSPIRED TOP TEST HEADER -->
+  <header class="ets-header-bar text-white sticky top-0 z-40 shadow-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-etsteal border border-teal-400/40 flex items-center justify-center font-bold text-base tracking-tight shadow-inner">
+          ILS
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-semibold uppercase tracking-widest text-teal-300">
+              Integrated Language Services
+            </span>
+            <span class="hidden sm:inline-block text-[11px] px-2 py-0.2 rounded bg-white/10 text-slate-200 border border-white/15">
+              Student Assessment Portal
+            </span>
+          </div>
+          <h1 class="text-sm sm:text-base font-bold tracking-tight text-white">
+            TOEFL iBT® Writing Practice — Adaptive Calibration Suite
+          </h1>
+        </div>
+      </div>
+
+      <!-- Test Clock & Score Report Controls -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Timer Mode Switcher + Readout -->
+        <div class="flex items-center bg-white/10 border border-white/15 rounded-lg px-3 py-1.5 gap-2.5">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] uppercase tracking-wider text-teal-200 font-semibold" id="timer-mode-label">Practice Timer</span>
+              <button onclick="toggleTimerMode()" class="text-[10px] underline text-slate-300 hover:text-white">
+                Switch Mode
+              </button>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="test-clock" class="font-mono text-base font-bold text-white">00:00</span>
+              <button onclick="toggleClockVisibility()" id="hide-clock-btn" class="text-[11px] text-slate-300 hover:text-white">
+                Hide
+              </button>
+            </div>
+          </div>
+          <button onclick="toggleClockRunning()" id="clock-play-btn" class="px-2.5 py-1 rounded bg-etsteal hover:bg-teal-600 text-xs font-semibold transition">
+            Pause
+          </button>
+        </div>
+
+        <!-- Score Report Trigger -->
+        <button onclick="openScoreReport()" class="px-3.5 py-2 rounded-lg bg-white text-etsnavy hover:bg-slate-100 text-xs font-bold shadow-sm transition flex items-center gap-1.5">
+          <span>Score Report</span>
+          <span id="header-progress-pill" class="px-1.5 py-0.5 rounded bg-etsteallight text-etsteal text-[11px] font-extrabold">0/21</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION NAVIGATION TABS -->
+    <div class="bg-[#0B1B29] border-t border-white/10 overflow-x-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 min-w-max">
+        <div class="flex items-center gap-1 py-1.5" id="module-tabs">
+          <!-- Populated dynamically -->
+        </div>
+        <div class="text-xs text-slate-300 py-1.5 hidden md:flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+          <span>Proficiency Tier Reveals After Each Submission</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ASSESSMENT VIEWPORT -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+    <!-- =================================================================== -->
+    <!-- MODULE 1: BUILD A SENTENCE (OFFICIAL TASK 1 • 9 PROGRESSIVE ITEMS)  -->
+    <!-- =================================================================== -->
+    <section id="module-1" class="space-y-6">
+      <!-- Task Directions Banner -->
+      <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">TOEFL iBT Writing • Task 1 of 3 Format</span>
+            <span class="text-xs text-slate-400">|</span>
+            <span class="text-xs font-medium text-slate-500">9 Adaptive Items (3 Stages)</span>
+          </div>
+          <h2 class="text-xl font-bold text-etsnavy mt-1">Build a Sentence</h2>
+          <p class="text-sm text-slate-600 mt-0.5">
+            Read the first speaker's line and arrange the word tiles to complete a grammatically accurate reply. <strong>One tile in the bank does not belong.</strong> Difficulty calibrates automatically as you progress.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-semibold text-slate-500">Item:</span>
+          <div id="m1-stepper" class="flex flex-wrap gap-1"></div>
+        </div>
+      </div>
+
+      <!-- Active Build-a-Sentence Card -->
+      <div id="m1-card" class="bg-white border border-etsborder rounded-xl shadow-sm overflow-hidden">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MODULE 2: PRECISION EDITING & CLAUSE SYNTHESIS LAB (6 ITEMS)        -->
+    <!-- =================================================================== -->
+    <section id="module-2" class="hidden space-y-6">
+      <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">Core Mechanics Calibration</span>
+            <span class="text-xs text-slate-400">|</span>
+            <span class="text-xs font-medium text-slate-500">Commas, Splices, Agreement &amp; Subordination</span>
+          </div>
+          <h2 class="text-xl font-bold text-etsnavy mt-1">Precision Editing &amp; Clause Synthesis Lab</h2>
+          <p class="text-sm text-slate-600 mt-0.5">
+            Repair structural errors or combine clauses using exact punctuation and subordination. Submit your revision to unlock diagnostic feedback and reveal the item's CEFR level.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-semibold text-slate-500">Item:</span>
+          <div id="m2-stepper" class="flex flex-wrap gap-1"></div>
+        </div>
+      </div>
+
+      <div id="m2-card" class="bg-white border border-etsborder rounded-xl shadow-sm overflow-hidden">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MODULE 3: WRITE AN EMAIL (OFFICIAL TASK 2 • 3 PROGRESSIVE TIERS)    -->
+    <!-- =================================================================== -->
+    <section id="module-3" class="hidden space-y-6">
+      <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">TOEFL iBT Writing • Task 2 Format</span>
+            <span class="text-xs text-slate-400">|</span>
+            <span class="text-xs font-medium text-slate-500">Recommended Time: 7 Minutes per Prompt</span>
+          </div>
+          <h2 class="text-xl font-bold text-etsnavy mt-1">Write an Email</h2>
+          <p class="text-sm text-slate-600 mt-0.5">
+            Address every bullet point in a tone appropriate for your reader. Complete Stage 1 to unlock higher-complexity scenarios.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-semibold text-slate-500">Scenario:</span>
+          <div id="m3-stepper" class="flex gap-1.5"></div>
+        </div>
+      </div>
+
+      <div id="m3-workspace" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MODULE 4: WRITE FOR AN ACADEMIC DISCUSSION (TASK 3 • 3 TIERS)       -->
+    <!-- =================================================================== -->
+    <section id="module-4" class="hidden space-y-6">
+      <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">TOEFL iBT Writing • Task 3 Format</span>
+            <span class="text-xs text-slate-400">|</span>
+            <span class="text-xs font-medium text-slate-500">Recommended Time: 10 Minutes • Target: 100+ Words</span>
+          </div>
+          <h2 class="text-xl font-bold text-etsnavy mt-1">Write for an Academic Discussion</h2>
+          <p class="text-sm text-slate-600 mt-0.5">
+            Read the professor's prompt and peer contributions, then write a well-supported response of at least 100 words using complex sentences and accurate punctuation.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-semibold text-slate-500">Seminar:</span>
+          <div id="m4-stepper" class="flex gap-1.5"></div>
+        </div>
+      </div>
+
+      <div id="m4-workspace" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OFFICIAL SCORE REPORT & CEFR DIAGNOSTIC MODAL -->
+  <div id="score-modal" class="hidden fixed inset-0 z-50 bg-etsnavy/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-etsborder overflow-hidden">
+      <!-- Modal Header -->
+      <div class="ets-header-bar text-white px-6 py-4 flex items-center justify-between no-print">
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-teal-300 font-semibold">Integrated Language Services</span>
+          <h3 class="text-lg font-bold">TOEFL iBT® Writing Diagnostic &amp; CEFR Calibration Report</h3>
+        </div>
+        <button onclick="closeScoreReport()" class="text-slate-300 hover:text-white text-xl font-bold px-2">✕</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="score-report-content" class="p-6 overflow-y-auto space-y-6 flex-1">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-etscanvas border-t border-etsborder flex flex-wrap items-center justify-between gap-3 no-print">
+        <span id="report-toast" class="text-xs font-semibold text-etssuccess"></span>
+        <div class="flex items-center gap-2.5">
+          <button onclick="copySummaryToClipboard()" class="px-4 py-2 rounded-lg bg-white border border-etsborder text-xs font-bold text-etsnavy hover:bg-slate-100 transition">
+            Copy Summary for Tutor
+          </button>
+          <button onclick="downloadStudentPortfolio()" class="px-4 py-2 rounded-lg bg-etsteal text-white text-xs font-bold hover:bg-teal-800 transition">
+            Download Study Report (.TXT)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    // =========================================================================
+    // 1. CEFR METADATA & HELPER BADGES (HIDDEN UNTIL SUBMISSION)
+    // =========================================================================
+    const CEFR_META = {
+      B1: {
+        code: 'CEFR B1',
+        title: 'Intermediate — Core Sentence Control',
+        badgeClass: 'bg-sky-100 text-sky-900 border-sky-300',
+        nextPrompt: 'Completing this unlocks B2 Academic Complexity items.'
+      },
+      B2: {
+        code: 'CEFR B2',
+        title: 'Upper-Intermediate — Academic Clause Complexity',
+        badgeClass: 'bg-amber-100 text-amber-900 border-amber-300',
+        nextPrompt: 'Completing this unlocks C1 Advanced Rhetorical Control items.'
+      },
+      C1: {
+        code: 'CEFR C1',
+        title: 'Advanced — Syntactic Precision & Nuance',
+        badgeClass: 'bg-purple-100 text-purple-900 border-purple-300',
+        nextPrompt: 'Highest proficiency tier calibrated for TOEFL Band 5.5–6.0!'
+      }
+    };
+
+    // =========================================================================
+    // 2. CURRICULUM BANK: MODULE 1 — BUILD A SENTENCE (9 ITEMS: 3 B1, 3 B2, 3 C1)
+    //    Each item defines `slots`: fixed anchor strings OR `{ gap: true, answer: '...' }`
+    // =========================================================================
+    const M1_ITEMS = [
+      // --- STAGE 1: B1 ---
+      {
+        id: 'm1-1',
+        level: 'B1',
+        skillTag: 'Subordination & Question Word Order',
+        speaker: "I'm thinking about starting a weekly strength routine.",
+        slots: [
+          { gap: true, answer: 'Will' },
+          'it',
+          { gap: true, answer: 'include' },
+          { gap: true, answer: 'any' },
+          { gap: true, answer: 'new' },
+          { gap: true, answer: 'exercises' },
+          '?'
+        ],
+        bank: ['Will', 'include', 'any', 'new', 'exercises', 'does'],
+        distractor: 'does',
+        fullSentence: 'Will it include any new exercises?',
+        explanation: 'With the modal auxiliary "Will" placed before the anchor subject "it", the main verb stays in its base form ("include"). "Does" is an extra auxiliary distractor that creates double-auxiliary ungrammaticality.',
+        levelRationale: 'Tests basic auxiliary-subject inversion around a fixed pronoun anchor ("it") and eliminating redundant auxiliaries.'
+      },
+      {
+        id: 'm1-2',
+        level: 'B1',
+        skillTag: 'Introductory Clause + Comma',
+        speaker: 'Why are you heading to the science library so early today?',
+        slots: [
+          { gap: true, answer: 'Because' },
+          { gap: true, answer: 'the' },
+          { gap: true, answer: 'exam' },
+          { gap: true, answer: 'starts' },
+          { gap: true, answer: 'tomorrow,' },
+          'I',
+          { gap: true, answer: 'need' },
+          { gap: true, answer: 'somewhere' },
+          'quiet.'
+        ],
+        bank: ['Because', 'the', 'exam', 'starts', 'tomorrow,', 'need', 'somewhere', 'so'],
+        distractor: 'so',
+        fullSentence: 'Because the exam starts tomorrow, I need somewhere quiet.',
+        explanation: 'When a dependent clause begins with "Because", a comma follows the clause ("tomorrow,") right before the fixed subject anchor "I". Adding "so" would create a double-conjunction error.',
+        levelRationale: 'Demonstrates accurate comma placement after a front-positioned causal dependent clause leading into an interior subject anchor.'
+      },
+      {
+        id: 'm1-3',
+        level: 'B1',
+        skillTag: 'Subject-Verb Agreement (Singular Head Noun)',
+        speaker: 'Did everyone in your lab group finish the chemistry report?',
+        slots: [
+          'Almost, but',
+          { gap: true, answer: 'the' },
+          { gap: true, answer: 'final' },
+          'page',
+          { gap: true, answer: 'of' },
+          { gap: true, answer: 'calculations' },
+          { gap: true, answer: 'is' },
+          'still missing.'
+        ],
+        bank: ['the', 'final', 'of', 'calculations', 'is', 'are'],
+        distractor: 'are',
+        fullSentence: 'Almost, but the final page of calculations is still missing.',
+        explanation: 'The anchored head subject is singular ("page"), not the plural noun inside the prepositional phrase ("of calculations"). Therefore, singular "is" is required.',
+        levelRationale: 'Requires distinguishing a singular subject anchor ("page") from a plural prepositional modifier ("of calculations").'
+      },
+
+      // --- STAGE 2: B2 ---
+      {
+        id: 'm1-4',
+        level: 'B2',
+        skillTag: 'Concessive Subordination & Comma Placement',
+        speaker: 'Was the guest lecture on renewable energy well attended?',
+        slots: [
+          { gap: true, answer: 'Although' },
+          { gap: true, answer: 'the' },
+          'weather',
+          { gap: true, answer: 'was' },
+          { gap: true, answer: 'terrible,' },
+          { gap: true, answer: 'the' },
+          { gap: true, answer: 'auditorium' },
+          'was packed.'
+        ],
+        bank: ['Although', 'the', 'was', 'terrible,', 'the', 'auditorium', 'however'],
+        distractor: 'however',
+        fullSentence: 'Although the weather was terrible, the auditorium was packed.',
+        explanation: 'An introductory concessive clause ("Although the weather was terrible,") requires a comma before the independent clause subject ("the auditorium"). Including "however" would create a comma splice / redundant contrast marker.',
+        levelRationale: 'Evaluates control of concessive subordination ("Although") around an interior subject anchor and avoids pairing "Although" with "however".'
+      },
+      {
+        id: 'm1-5',
+        level: 'B2',
+        skillTag: 'Subject-Verb Agreement with Intervening Clause',
+        speaker: 'Which research proposals did the faculty committee approve?',
+        slots: [
+          'Only',
+          { gap: true, answer: 'the' },
+          'study',
+          { gap: true, answer: 'that' },
+          { gap: true, answer: 'examines' },
+          { gap: true, answer: 'urban' },
+          { gap: true, answer: 'wetlands' },
+          { gap: true, answer: 'receives' },
+          'funding.'
+        ],
+        bank: ['the', 'that', 'examines', 'urban', 'wetlands', 'receives', 'receive'],
+        distractor: 'receive',
+        fullSentence: 'Only the study that examines urban wetlands receives funding.',
+        explanation: 'The anchored core subject is singular ("study"). The relative clause ("that examines urban wetlands") ends with plural "wetlands", which tempts writers into using "receive", but the main verb must agree with "study" → "receives".',
+        levelRationale: 'Tests agreement across an embedded relative clause following a singular subject anchor ("study").'
+      },
+      {
+        id: 'm1-6',
+        level: 'B2',
+        skillTag: 'Avoiding Comma Splices with Coordinating Conjunctions',
+        speaker: 'Should we submit our group outline tonight or wait until Monday?',
+        slots: [
+          'The deadline',
+          { gap: true, answer: 'is' },
+          { gap: true, answer: 'tomorrow,' },
+          { gap: true, answer: 'so' },
+          'we',
+          { gap: true, answer: 'should' },
+          { gap: true, answer: 'finalize' },
+          'it tonight.'
+        ],
+        bank: ['is', 'tomorrow,', 'so', 'should', 'finalize', 'therefore'],
+        distractor: 'therefore',
+        fullSentence: 'The deadline is tomorrow, so we should finalize it tonight.',
+        explanation: 'Two independent clauses ("The deadline is tomorrow" and "we should finalize it tonight") must be joined by a comma + coordinating conjunction (", so") before the anchored pronoun "we". Using ", therefore" without a semicolon would cause a comma splice.',
+        levelRationale: 'Distinguishes true coordinating conjunctions (", so") from conjunctive adverbs ("therefore") that trigger comma splices.'
+      },
+
+      // --- STAGE 3: C1 ---
+      {
+        id: 'm1-7',
+        level: 'C1',
+        skillTag: 'Conditional Subordination & Formal Agreement',
+        speaker: 'Will the department accept late applications for the fellowship?',
+        slots: [
+          { gap: true, answer: 'Provided' },
+          { gap: true, answer: 'that' },
+          'each candidate',
+          { gap: true, answer: 'submits' },
+          { gap: true, answer: 'transcripts,' },
+          { gap: true, answer: 'their' },
+          'file',
+          { gap: true, answer: 'is' },
+          'considered.'
+        ],
+        bank: ['Provided', 'that', 'submits', 'transcripts,', 'their', 'is', 'are'],
+        distractor: 'are',
+        fullSentence: 'Provided that each candidate submits transcripts, their file is considered.',
+        explanation: '"Provided that" introduces a formal conditional clause around "each candidate", ending with a comma ("transcripts,"). In the main clause, the anchored singular subject "file" requires singular "is", despite the plural noun "transcripts" right before the comma.',
+        levelRationale: 'Combines advanced conditional subordination ("Provided that"), boundary comma placement, and long-distance singular agreement.'
+      },
+      {
+        id: 'm1-8',
+        level: 'C1',
+        skillTag: 'Contrastive Subordination (Whereas) & Pronoun Precision',
+        speaker: 'How do traditional lectures compare with seminar-style classes?',
+        slots: [
+          { gap: true, answer: 'Whereas' },
+          { gap: true, answer: 'large' },
+          'lectures',
+          { gap: true, answer: 'emphasize' },
+          { gap: true, answer: 'note-taking,' },
+          { gap: true, answer: 'a' },
+          'seminar',
+          { gap: true, answer: 'requires' },
+          'active participation.'
+        ],
+        bank: ['Whereas', 'large', 'emphasize', 'note-taking,', 'a', 'requires', 'they'],
+        distractor: 'they',
+        fullSentence: 'Whereas large lectures emphasize note-taking, a seminar requires active participation.',
+        explanation: '"Whereas" introduces a direct academic contrast requiring a comma before the main clause ("a seminar requires..."). Inserting "they" would create an ungrammatical double-subject structure.',
+        levelRationale: 'Demonstrates C1 academic register using "Whereas" for balanced clause contrast across multiple interior anchors.'
+      },
+      {
+        id: 'm1-9',
+        level: 'C1',
+        skillTag: 'Neither/Nor Proximity Agreement & Subordination',
+        speaker: 'Why was the psychology experiment postponed until next semester?',
+        slots: [
+          { gap: true, answer: 'Because' },
+          { gap: true, answer: 'neither' },
+          'the lead researcher',
+          { gap: true, answer: 'nor' },
+          { gap: true, answer: 'her' },
+          'assistants',
+          { gap: true, answer: 'were' },
+          'ready.'
+        ],
+        bank: ['Because', 'neither', 'nor', 'her', 'were', 'was'],
+        distractor: 'was',
+        fullSentence: 'Because neither the lead researcher nor her assistants were ready.',
+        explanation: 'In correlative "neither... nor..." constructions framing the anchored noun phrases, the verb agrees with the nearer noun phrase ("assistants" = plural → "were").',
+        levelRationale: 'Applies the proximity agreement rule inside a subordinate causal clause with dual nominal anchors.'
+      }
+    ];
+
+    // =========================================================================
+    // 3. CURRICULUM BANK: MODULE 2 — PRECISION EDITING & SYNTHESIS LAB (6 ITEMS)
+    // =========================================================================
+    const M2_ITEMS = [
+      {
+        id: 'm2-1',
+        level: 'B1',
+        mode: 'Edit Punctuation & Splice',
+        focus: 'Introductory Clause Comma & Comma Splice Repair',
+        promptInstruction: 'Correct the missing introductory comma and repair the comma splice in the sentence below.',
+        sourceText: 'When the campus library closes at midnight many students move to the 24-hour study lounge, it is located next to the student center.',
+        requiredSubordinators: [],
+        mustContainAny: ['midnight,'],
+        mustAvoidSubstrings: ['lounge, it'],
+        modelAnswer: 'When the campus library closes at midnight, many students move to the 24-hour study lounge, which is located next to the student center.',
+        altModels: [
+          'When the campus library closes at midnight, many students move to the 24-hour study lounge; it is located next to the student center.',
+          'When the campus library closes at midnight, many students move to the 24-hour study lounge because it is located next to the student center.'
+        ],
+        explanation: 'First, place a comma after the introductory dependent clause ("When the campus library closes at midnight,"). Second, repair the comma splice ("lounge, it") using a relative clause (", which"), a semicolon, or a subordinator ("because").',
+        levelRationale: 'Targets foundational B1 boundary awareness: separating introductory adverbial clauses and eliminating bare comma + pronoun splices.'
+      },
+      {
+        id: 'm2-2',
+        level: 'B1',
+        mode: 'Edit Agreement',
+        focus: 'Subject-Verb & Pronoun-Antecedent Agreement',
+        promptInstruction: 'Fix the subject-verb agreement and pronoun-antecedent agreement errors in the sentence below.',
+        sourceText: 'The list of required laboratory materials are posted online, and every student must bring their own safety goggles.',
+        requiredSubordinators: [],
+        mustContainAny: ['is posted', 'his or her', 'all students'],
+        mustAvoidSubstrings: ['materials are posted'],
+        modelAnswer: 'The list of required laboratory materials is posted online, and every student must bring his or her own safety goggles.',
+        altModels: [
+          'The list of required laboratory materials is posted online, and all students must bring their own safety goggles.'
+        ],
+        explanation: 'The head subject of the first clause is singular ("list"), so the verb must be singular ("is posted"). In the second clause, singular "every student" matches singular "his or her" (or pluralize to "all students... their").',
+        levelRationale: 'Tests B1 singular head-noun identification across a plural prepositional modifier ("of required laboratory materials").'
+      },
+      {
+        id: 'm2-3',
+        level: 'B2',
+        mode: 'Combine Clauses (Subordination)',
+        focus: 'Concessive Subordination & Clause Boundary Punctuation',
+        promptInstruction: 'Combine the two sentences into ONE complex sentence using "although" or "while". Pay careful attention to comma placement.',
+        sourceText: 'Online lectures offer flexible scheduling for commuting students. Many learners struggle to stay focused without face-to-face interaction.',
+        requiredSubordinators: ['although', 'while'],
+        mustContainAny: ['although', 'while'],
+        mustAvoidSubstrings: ['students. many'],
+        modelAnswer: 'Although online lectures offer flexible scheduling for commuting students, many learners struggle to stay focused without face-to-face interaction.',
+        altModels: [
+          'Many learners struggle to stay focused without face-to-face interaction although online lectures offer flexible scheduling for commuting students.',
+          'While online lectures offer flexible scheduling for commuting students, many learners struggle to stay focused without face-to-face interaction.'
+        ],
+        explanation: 'Placing "Although" or "While" at the beginning creates an introductory dependent clause that requires a comma after "students". If the dependent clause comes second, no comma is needed.',
+        levelRationale: 'Evaluates B2 academic synthesis using concessive subordination and accurate clause-order comma rules.'
+      },
+      {
+        id: 'm2-4',
+        level: 'B2',
+        mode: 'Edit Conjunctive Adverb Splice',
+        focus: 'Distinguishing Conjunctive Adverbs ("however", "therefore") from Conjunctions',
+        promptInstruction: 'Repair the comma splice caused by the conjunctive adverb "however" in the sentence below.',
+        sourceText: 'The biology department expanded its peer-tutoring hours this semester, however, enrollment in introductory courses still exceeds available seats.',
+        requiredSubordinators: [],
+        mustContainAny: ['; however,', '. however,', 'although', 'but'],
+        mustAvoidSubstrings: ['semester, however,'],
+        modelAnswer: 'The biology department expanded its peer-tutoring hours this semester; however, enrollment in introductory courses still exceeds available seats.',
+        altModels: [
+          'Although the biology department expanded its peer-tutoring hours this semester, enrollment in introductory courses still exceeds available seats.',
+          'The biology department expanded its peer-tutoring hours this semester, but enrollment in introductory courses still exceeds available seats.'
+        ],
+        explanation: '"However" is a conjunctive adverb, not a coordinating conjunction. Joining two independent clauses with ", however," creates a classic TOEFL comma splice. Use a semicolon before "however" ("; however,") or restructure with "Although".',
+        levelRationale: 'Addresses a high-frequency B2 academic writing error: treating transitional adverbs like coordinating conjunctions.'
+      },
+      {
+        id: 'm2-5',
+        level: 'C1',
+        mode: 'Combine Clauses (Conditional / Contrastive)',
+        focus: 'Formal Academic Subordination ("provided that" / "unless" / "whereas")',
+        promptInstruction: 'Synthesize these two ideas into ONE formal academic sentence using "provided that", "unless", or "whereas".',
+        sourceText: 'Undergraduate researchers receive full laboratory funding. Their faculty advisor approves the methodology before the semester begins.',
+        requiredSubordinators: ['provided that', 'unless', 'whereas'],
+        mustContainAny: ['provided that', 'unless'],
+        mustAvoidSubstrings: ['funding. their'],
+        modelAnswer: 'Undergraduate researchers receive full laboratory funding provided that their faculty advisor approves the methodology before the semester begins.',
+        altModels: [
+          'Provided that their faculty advisor approves the methodology before the semester begins, undergraduate researchers receive full laboratory funding.',
+          'Undergraduate researchers do not receive full laboratory funding unless their faculty advisor approves the methodology before the semester begins.'
+        ],
+        explanation: '"Provided that" introduces a formal academic condition. Notice that when the conditional clause follows the main clause, no comma is required; when placed first, a comma separates the dependent clause from the main clause.',
+        levelRationale: 'Calibrates C1 syntactic precision using formal conditional subordinators common in Band 5.5–6.0 TOEFL responses.'
+      },
+      {
+        id: 'm2-6',
+        level: 'C1',
+        mode: 'Edit Multi-Clause Agreement & Splice',
+        focus: 'Long-Distance Subject-Verb Agreement + Subordination Repair',
+        promptInstruction: 'Eliminate all agreement and comma-splice errors in this complex academic sentence.',
+        sourceText: 'Neither the initial survey responses nor the follow-up interview data supports the hypothesis, the researchers needs to collect a larger sample.',
+        requiredSubordinators: [],
+        mustContainAny: ['data support', 'researchers need'],
+        mustAvoidSubstrings: ['data supports', 'researchers needs', 'hypothesis, the researchers'],
+        modelAnswer: 'Neither the initial survey responses nor the follow-up interview data support the hypothesis, so the researchers need to collect a larger sample.',
+        altModels: [
+          'Because neither the initial survey responses nor the follow-up interview data support the hypothesis, the researchers need to collect a larger sample.',
+          'Neither the initial survey responses nor the follow-up interview data support the hypothesis; therefore, the researchers need to collect a larger sample.'
+        ],
+        explanation: 'Three precision edits are required: (1) In "neither... nor...", plural "data" (nearer noun) takes plural "support"; (2) repair the comma splice before "the researchers" with ", so" or "Because"; (3) plural "researchers" takes "need".',
+        levelRationale: 'Tests simultaneous C1 mastery of proximity agreement, plural agreement, and clause-boundary repair.'
+      }
+    ];
+
+    // =========================================================================
+    // 4. CURRICULUM BANK: MODULE 3 — WRITE AN EMAIL (3 SCENARIOS)
+    // =========================================================================
+    const M3_SCENARIOS = [
+      {
+        id: 'm3-1',
+        level: 'B1',
+        title: 'Employee Wellness Day Coordination',
+        recipient: 'To: All Company Employees',
+        subject: 'Subject: Volunteers and Venue Suggestions for Next Month’s Employee Wellness Day',
+        minWords: 85,
+        situation: 'You are helping organize an employee wellness day at your company next month. Before the event, someone needs to confirm a venue, arrange refreshments, and plan activity stations. You want coworkers to volunteer and help with preparation.',
+        bullets: [
+          'Explain what still needs to be organized for the wellness day.',
+          'Suggest a suitable location for the event.',
+          'Ask for volunteers to support planning and event-day tasks.'
+        ],
+        modelAnnotated: `Dear All Employees,<br><br>I am writing <span class="hl-sub">because</span> we have started preparing next month's employee wellness day<span class="hl-comma">,</span> and several key details still <span class="hl-agree">need</span> to be organized. Specifically, our committee <span class="hl-agree">requires</span> assistance confirming a venue, arranging healthy refreshments, and planning short activity stations.<br><br>I would like to suggest hosting the event at the Riverside Activity Center. <span class="hl-sub">Because</span> the facility <span class="hl-agree">offers</span> both indoor and outdoor space<span class="hl-comma">,</span> it can easily accommodate group stretching sessions and team games.<br><br><span class="hl-sub">If</span> you are interested in helping<span class="hl-comma">,</span> please reply to this email by Friday. Even volunteering for a single shift would be greatly appreciated.<br><br>Best regards,<br>Jordan Kim`,
+        levelRationale: 'B1 benchmark: covers all three required task bullets in an appropriate workplace register using clear causal and conditional subordinators.'
+      },
+      {
+        id: 'm3-2',
+        level: 'B2',
+        title: 'Graduate Seminar Schedule Conflict',
+        recipient: 'To: Professor Elena Vance (Department of Environmental Science)',
+        subject: 'Subject: Request to Reschedule Tuesday’s Research Presentation',
+        minWords: 100,
+        situation: 'You are scheduled to present your literature review in Professor Vance’s Tuesday seminar. However, you have been selected to represent your university at a regional sustainability symposium on the same afternoon. You want to request an alternative presentation date and explain how you will stay caught up.',
+        bullets: [
+          'Explain why you cannot attend Tuesday’s seminar session.',
+          'Propose two alternative dates to deliver your presentation.',
+          'Clarify how you will submit your written summary and review missed class material.'
+        ],
+        modelAnnotated: `Dear Professor Vance,<br><br>I am writing to request permission to reschedule my literature review presentation<span class="hl-comma">,</span> which is currently set for Tuesday, October 14. <span class="hl-sub">Although</span> I had planned to present on that date<span class="hl-comma">,</span> the university <span class="hl-agree">has</span> recently selected me to represent our department at the Regional Sustainability Symposium.<br><br><span class="hl-sub">If</span> your syllabus schedule <span class="hl-agree">allows</span> flexibility<span class="hl-comma">,</span> I would be grateful to present either on Thursday, October 16, or during next Tuesday’s seminar. Furthermore, I will upload my written handout before Tuesday’s class <span class="hl-sub">so that</span> my classmates <span class="hl-agree">have</span> access to my findings.<br><br>Thank you very much for considering my request.<br><br>Sincerely,<br>Alex Rivera`,
+        levelRationale: 'B2 benchmark: demonstrates formal academic register, accurate introductory commas with "Although" and "If", and zero comma splices.'
+      },
+      {
+        id: 'm3-3',
+        level: 'C1',
+        title: 'Library Research Commons Policy Proposal',
+        recipient: 'To: Dr. Marcus Thorne, Director of University Libraries',
+        subject: 'Subject: Proposal for Extended Quiet-Zone Hours During Midterm and Final Exam Weeks',
+        minWords: 115,
+        situation: 'As the undergraduate student representative on the Library Advisory Board, you have gathered feedback showing that collaborative noise on the second floor disrupts students preparing for exams. Write a formal email proposing a balanced policy adjustment.',
+        bullets: [
+          'Summarize the specific noise and space challenges students currently face.',
+          'Propose a concrete policy modification that balances group and solo study needs.',
+          'Explain how the student council can assist with communicating and evaluating the change.'
+        ],
+        modelAnnotated: `Dear Dr. Thorne,<br><br>On behalf of the Undergraduate Library Advisory Board, I am writing to share recent student feedback regarding study conditions on the second floor. <span class="hl-sub">While</span> the open-collaboration layout <span class="hl-agree">encourages</span> peer discussion during regular weeks<span class="hl-comma">,</span> the resulting noise levels make concentrated exam preparation difficult.<br><br>To address this issue, our board <span class="hl-agree">proposes</span> designating the east wing as a strict quiet zone during midterm and final exam periods<span class="hl-comma">,</span> <span class="hl-sub">whereas</span> the west wing would remain open for group projects. <span class="hl-sub">Provided that</span> clear signage <span class="hl-agree">is</span> posted one week in advance<span class="hl-comma">,</span> students will easily adapt to the updated zoning.<br><br>Our council would be glad to publicize this pilot program and collect survey data at the end of the term.<br><br>Respectfully,<br>Samira Patel`,
+        levelRationale: 'C1 benchmark: employs nuanced contrastive ("While", "whereas") and conditional ("Provided that") subordination with precise singular/plural control.'
+      }
+    ];
+
+    // =========================================================================
+    // 5. CURRICULUM BANK: MODULE 4 — WRITE FOR AN ACADEMIC DISCUSSION (3 SEMINARS)
+    // =========================================================================
+    const M4_SEMINARS = [
+      {
+        id: 'm4-1',
+        level: 'B1',
+        course: 'EDUC 204 • Learning Strategies & Cognition',
+        professor: 'Dr. Hannah Lin',
+        question: 'Some people believe students learn more effectively when they study with others, while others prefer to study alone. Which approach do you think is more effective, and why? Give reasons and an example.',
+        studentA: {
+          name: 'Liam',
+          text: 'I think studying in small groups is much more effective because explaining difficult ideas out loud helps you realize what you actually understand. Whenever my biology group quizzes each other before an exam, I remember the material much longer.'
+        },
+        studentB: {
+          name: 'Sofia',
+          text: 'While group study can be motivating, I prefer studying alone so I can control my own pace. When I study by myself in the library, I do not waste time on off-topic conversations and can focus entirely on my weakest subjects.'
+        },
+        modelAnnotated: `<span class="hl-sub">Although</span> both study methods <span class="hl-agree">offer</span> clear advantages<span class="hl-comma">,</span> I believe studying alone is generally more effective for mastering complex academic material. <span class="hl-sub">When</span> students <span class="hl-agree">work</span> independently<span class="hl-comma">,</span> they can spend extra time reviewing challenging concepts without feeling rushed by the pace of a group.<br><br>For example, I agree with Sofia’s point about avoiding distractions. Last semester, I initially prepared for my statistics exam in a four-person study group<span class="hl-comma">,</span> <span class="hl-sub">yet</span> we spent nearly half of every session discussing unrelated coursework. <span class="hl-sub">Once</span> I switched to solo study sessions<span class="hl-comma">,</span> my concentration <span class="hl-agree">improved</span> dramatically, and my exam score rose by fifteen percent.`,
+        levelRationale: 'B1–B2 foundational seminar: directly engages peer viewpoints, sustains 110+ words, and anchors ideas with introductory dependent clauses.'
+      },
+      {
+        id: 'm4-2',
+        level: 'B2',
+        course: 'SOC 310 • Technology & Higher Education',
+        professor: 'Dr. David Okafor',
+        question: 'Many universities now record all lectures and upload them online for students to watch at any time. Some professors worry that recorded lectures reduce classroom attendance and active participation. Should universities continue recording all lectures, or should access be restricted? Explain your view.',
+        studentA: {
+          name: 'Chloe',
+          text: 'Recording lectures is essential for accessibility. If a student is sick or speaks English as a second language, being able to pause and replay complex explanations makes learning far more equitable.'
+        },
+        studentB: {
+          name: 'Ethan',
+          text: 'I understand Chloe’s point, yet attendance in my morning economics lecture dropped by half once recordings became available. Without students in the room, class discussions become much less dynamic.'
+        },
+        modelAnnotated: `<span class="hl-sub">While</span> Ethan raises a valid concern regarding declining classroom attendance<span class="hl-comma">,</span> universities should continue making recorded lectures available to all students. <span class="hl-sub">Because</span> modern student populations <span class="hl-agree">include</span> commuters, part-time workers, and multilingual learners<span class="hl-comma">,</span> flexible access to course content <span class="hl-agree">supports</span> academic equity.<br><br>Rather than restricting recordings, instructors can encourage attendance by incorporating interactive problem-solving into live sessions. <span class="hl-sub">For instance, if</span> a professor <span class="hl-agree">dedicates</span> twenty minutes of each lecture to graded peer case studies<span class="hl-comma">,</span> students have a strong incentive to attend in person while still retaining recordings for exam review.`,
+        levelRationale: 'B2 synthesis: balances counterarguments using "While" and "Because", avoiding comma splices across multi-clause explanations.'
+      },
+      {
+        id: 'm4-3',
+        level: 'C1',
+        course: 'ENVS 415 • Urban Policy & Sustainability',
+        professor: 'Dr. Claire Beaumont',
+        question: 'To reduce urban traffic congestion and carbon emissions, several major cities have introduced congestion pricing—charging drivers a fee to enter central business districts during peak hours. Critics argue this policy unfairly burdens lower-income commuters. Is congestion pricing an effective and fair urban policy? Why or why not?',
+        studentA: {
+          name: 'Nadia',
+          text: 'Congestion pricing works only if the revenue is invested directly into reliable public transit. Otherwise, drivers simply pay more without having a realistic alternative way to reach their jobs.'
+        },
+        studentB: {
+          name: 'Mateo',
+          text: 'Even with transit investments, flat daily fees take a much larger percentage of a low-income worker’s paycheck. Cities should focus on expanding bus lanes first before penalizing drivers.'
+        },
+        modelAnnotated: `Congestion pricing can serve as an effective urban policy<span class="hl-comma">,</span> <span class="hl-sub">provided that</span> municipal governments <span class="hl-agree">pair</span> the fee with targeted exemptions and rapid transit expansion. <span class="hl-sub">Whereas</span> unadjusted flat fees disproportionately burden lower-income commuters<span class="hl-comma">,</span> tiered pricing structures—such as discounted rates for low-income residents and off-peak travelers—<span class="hl-agree">mitigate</span> financial inequity.<br><br>Building on Nadia’s observation, cities like Stockholm <span class="hl-agree">have</span> demonstrated that dedicating congestion revenues to bus frequency and rail reliability <span class="hl-agree">reduces</span> downtown vehicle volume by over twenty percent. <span class="hl-sub">Unless</span> commuters <span class="hl-agree">have</span> dependable transit alternatives<span class="hl-comma">,</span> however, congestion fees risk functioning merely as a regressive tax rather than a sustainable mobility solution.`,
+        levelRationale: 'C1 academic discussion: integrates formal subordinators ("provided that", "Whereas", "Unless") with sophisticated long-distance subject-verb agreement.'
+      }
+    ];
+
+    // =========================================================================
+    // 6. GLOBAL APPLICATION STATE
+    // =========================================================================
+    const state = {
+      activeModule: 1,
+      m1Index: 0,
+      m1UnlockedMax: 0,
+      m1Submissions: {},
+      m2Index: 0,
+      m2UnlockedMax: 0,
+      m2Submissions: {},
+      m3Index: 0,
+      m3UnlockedMax: 0,
+      m3Submissions: {},
+      m4Index: 0,
+      m4UnlockedMax: 0,
+      m4Submissions: {}
+    };
+
+    const MODULES = [
+      { id: 1, label: '1. Build a Sentence (9)' },
+      { id: 2, label: '2. Editing & Synthesis Lab (6)' },
+      { id: 3, label: '3. Write an Email (3)' },
+      { id: 4, label: '4. Academic Discussion (3)' }
+    ];
+
+    // =========================================================================
+    // 7. TIMER & HEADER CONTROLS
+    // =========================================================================
+    let timerMode = 'elapsed'; // 'elapsed' | 'countdown'
+    let clockSeconds = 0;
+    let clockRunning = true;
+    let clockHidden = false;
+    let clockInterval = null;
+
+    function startClock() {
+      if (clockInterval) clearInterval(clockInterval);
+      clockInterval = setInterval(() => {
+        if (!clockRunning) return;
+        if (timerMode === 'elapsed') {
+          clockSeconds++;
+        } else {
+          clockSeconds = Math.max(0, clockSeconds - 1);
+        }
+        renderClock();
+      }, 1000);
+    }
+
+    function renderClock() {
+      const el = document.getElementById('test-clock');
+      if (!el) return;
+      if (clockHidden) {
+        el.textContent = '••:••';
+        return;
+      }
+      const m = String(Math.floor(clockSeconds / 60)).padStart(2, '0');
+      const s = String(clockSeconds % 60).padStart(2, '0');
+      el.textContent = `${m}:${s}`;
+    }
+
+    function toggleTimerMode() {
+      const label = document.getElementById('timer-mode-label');
+      if (timerMode === 'elapsed') {
+        timerMode = 'countdown';
+        clockSeconds = 23 * 60; // Official 23-min TOEFL Writing window
+        label.textContent = '23-Min Exam Countdown';
+      } else {
+        timerMode = 'elapsed';
+        clockSeconds = 0;
+        label.textContent = 'Practice Timer';
+      }
+      renderClock();
+    }
+
+    function toggleClockVisibility() {
+      clockHidden = !clockHidden;
+      document.getElementById('hide-clock-btn').textContent = clockHidden ? 'Show' : 'Hide';
+      renderClock();
+    }
+
+    function toggleClockRunning() {
+      clockRunning = !clockRunning;
+      document.getElementById('clock-play-btn').textContent = clockRunning ? 'Pause' : 'Resume';
+    }
+
+    // =========================================================================
+    // 8. NAVIGATION & INITIALIZATION
+    // =========================================================================
+    function renderModuleTabs() {
+      const tabsEl = document.getElementById('module-tabs');
+      tabsEl.innerHTML = MODULES.map(m => {
+        const isActive = state.activeModule === m.id;
+        return `
+          <button
+            onclick="switchModule(${m.id})"
+            class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              isActive
+                ? 'bg-etsteal text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-white/10'
+            }"
+          >
+            ${m.label}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function switchModule(moduleId) {
+      state.activeModule = moduleId;
+      renderModuleTabs();
+      MODULES.forEach(m => {
+        const sec = document.getElementById(`module-${m.id}`);
+        if (m.id === moduleId) sec.classList.remove('hidden');
+        else sec.classList.add('hidden');
+      });
+    }
+
+    function updateGlobalProgressBadge() {
+      const total =
+        Object.keys(state.m1Submissions).length +
+        Object.keys(state.m2Submissions).length +
+        Object.keys(state.m3Submissions).length +
+        Object.keys(state.m4Submissions).length;
+      const pill = document.getElementById('header-progress-pill');
+      if (pill) pill.textContent = `${total}/21`;
+    }
+
+    function init() {
+      // Pre-scramble Module 1 word banks so tiles never appear in answer order
+      M1_ITEMS.forEach(item => getM1ShuffledBank(item, true));
+      initM1GapState(M1_ITEMS[0], null);
+
+      renderModuleTabs();
+      renderM1();
+      renderM2();
+      renderM3();
+      renderM4();
+      updateGlobalProgressBadge();
+      startClock();
+    }
+
+    // =========================================================================
+    // 9. MODULE 1: BUILD A SENTENCE ENGINE (POSITIONAL SLOTS + ANCHOR WORDS)
+    // =========================================================================
+    // For active item: maps gapIndex (0..numGaps-1) -> { bankIdx, word } | null
+    let m1GapPlacements = [];
+    let m1ActiveGapIdx = 0;
+    const m1ShuffledBanks = {}; // { 'm1-1': ['somewhere', 'tomorrow,', 'Because', ...] }
+
+    /**
+     * Returns an array of expected answer words for each interactive gap in `item.slots`.
+     */
+    function getItemGaps(item) {
+      return item.slots.filter(s => typeof s === 'object' && s.gap);
+    }
+
+    /**
+     * Generates a true Fisher-Yates derangement of the word bank so that:
+     * 1. No tile sits in its original syntactical index (or exact reverse order).
+     * 2. No two adjacent words from the correct gap sequence remain adjacent if avoidable.
+     * 3. The distractor tile is mixed unpredictably among the content words.
+     */
+    function generateScrambledBank(item) {
+      const source = [...item.bank];
+      const correctSeq = getItemGaps(item).map(g => g.answer);
+
+      const isTooOrdered = (arr) => {
+        if (arr.every((w, i) => w === source[i])) return true;
+        if (arr.every((w, i) => w === source[source.length - 1 - i])) return true;
+        let adjacentMatches = 0;
+        for (let i = 0; i < arr.length - 1; i++) {
+          const idxA = correctSeq.indexOf(arr[i]);
+          if (idxA !== -1 && correctSeq[idxA + 1] === arr[i + 1]) {
+            adjacentMatches++;
+          }
+        }
+        return adjacentMatches > 1;
+      };
+
+      let candidate = [...source];
+      let attempts = 0;
+      do {
+        candidate = [...source];
+        for (let i = candidate.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [candidate[i], candidate[j]] = [candidate[j], candidate[i]];
+        }
+        attempts++;
+      } while (isTooOrdered(candidate) && attempts < 60);
+
+      return candidate;
+    }
+
+    function getM1ShuffledBank(item, forceReshuffle = false) {
+      if (!m1ShuffledBanks[item.id] || forceReshuffle) {
+        m1ShuffledBanks[item.id] = generateScrambledBank(item);
+      }
+      return m1ShuffledBanks[item.id];
+    }
+
+    function initM1GapState(item, existingSub) {
+      const gaps = getItemGaps(item);
+      if (existingSub && Array.isArray(existingSub.placements) && existingSub.placements.length === gaps.length) {
+        m1GapPlacements = existingSub.placements.map(p => (p ? { ...p } : null));
+      } else {
+        m1GapPlacements = new Array(gaps.length).fill(null);
+      }
+      const firstEmpty = m1GapPlacements.findIndex(p => p === null);
+      m1ActiveGapIdx = firstEmpty !== -1 ? firstEmpty : 0;
+    }
+
+    function renderM1() {
+      const stepper = document.getElementById('m1-stepper');
+      stepper.innerHTML = M1_ITEMS.map((item, idx) => {
+        const sub = state.m1Submissions[item.id];
+        const unlocked = idx <= state.m1UnlockedMax;
+        let cls = 'w-7 h-7 rounded-md text-xs font-bold border transition ';
+        if (idx === state.m1Index) cls += 'bg-etsnavy text-white border-etsnavy';
+        else if (sub && sub.isCorrect) cls += 'bg-etssuccessbg text-etssuccess border-emerald-300';
+        else if (sub && !sub.isCorrect) cls += 'bg-amber-50 text-amber-800 border-amber-300';
+        else if (unlocked) cls += 'bg-white text-etsnavy border-etsborder hover:bg-slate-100';
+        else cls += 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed';
+
+        return `<button ${unlocked ? `onclick="selectM1Item(${idx})"` : 'disabled'} class="${cls}" title="${unlocked ? `Question ${idx + 1}` : 'Complete previous item to unlock'}">${idx + 1}</button>`;
+      }).join('');
+
+      const item = M1_ITEMS[state.m1Index];
+      const existingSub = state.m1Submissions[item.id];
+      const shuffledBank = getM1ShuffledBank(item);
+      const gaps = getItemGaps(item);
+
+      if (m1GapPlacements.length !== gaps.length) {
+        initM1GapState(item, existingSub);
+      }
+
+      const usedBankIndices = new Set(
+        m1GapPlacements.filter(p => p !== null).map(p => p.bankIdx)
+      );
+      const cefr = CEFR_META[item.level];
+
+      // Build positional slots HTML (preserving exact anchor positions before, between, and after gaps)
+      let runningGapIdx = 0;
+      const sentenceSlotsHtml = item.slots.map(slot => {
+        if (typeof slot === 'string') {
+          // Fixed Anchor Token
+          const isPunctOnly = /^[?.!,;:]+$/.test(slot);
+          return `<span class="inline-flex items-center px-1.5 py-1 text-base sm:text-lg font-bold text-etsnavy select-none ${isPunctOnly ? '-ml-1' : 'bg-slate-100/90 border border-slate-200/80 rounded-md px-2.5'}">${slot}</span>`;
+        } else {
+          // Interactive Positional Gap Slot
+          const gIdx = runningGapIdx++;
+          const placed = m1GapPlacements[gIdx];
+          const isTarget = gIdx === m1ActiveGapIdx;
+
+          if (placed) {
+            return `
+              <button
+                type="button"
+                draggable="true"
+                ondragstart="handleM1DragStart(event, 'gap', ${gIdx}, ${placed.bankIdx}, '${placed.word.replace(/'/g, "\\'")}')"
+                ondragover="handleM1DragOver(event)"
+                ondragleave="handleM1DragLeave(event)"
+                ondrop="handleM1DropOnGap(event, ${gIdx})"
+                onclick="removeM1GapTile(${gIdx})"
+                class="word-tile px-3.5 py-1.5 rounded-lg bg-etsnavy text-white text-sm sm:text-base font-semibold shadow-sm hover:bg-rose-700"
+                title="Click to remove back to bank (or drag to another slot)"
+              >
+                ${placed.word}
+              </button>
+            `;
+          } else {
+            return `
+              <button
+                type="button"
+                onclick="focusM1Gap(${gIdx})"
+                ondragover="handleM1DragOver(event)"
+                ondragleave="handleM1DragLeave(event)"
+                ondrop="handleM1DropOnGap(event, ${gIdx})"
+                class="gap-slot inline-flex items-center justify-center px-3 text-xs font-semibold ${isTarget ? 'active-target text-etsteal' : 'text-slate-400'}"
+                title="Click to target this slot (or drag a word tile here)"
+              >
+                ${isTarget ? '▼' : ''}
+              </button>
+            `;
+          }
+        }
+      }).join('');
+
+      const card = document.getElementById('m1-card');
+      card.innerHTML = `
+        <div class="bg-etscanvas px-6 py-3.5 border-b border-etsborder flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Question ${state.m1Index + 1} of ${M1_ITEMS.length}</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-white border border-etsborder text-slate-600 font-medium">
+              ${existingSub ? `Focus: ${item.skillTag}` : 'Calibration Level Hidden Until Submission'}
+            </span>
+          </div>
+          ${existingSub ? `
+            <span class="text-xs font-bold px-3 py-1 rounded-full border ${cefr.badgeClass}">
+              CALIBRATION REVEALED: ${cefr.code}
+            </span>
+          ` : `
+            <span class="text-xs text-slate-400 italic">Submit answer to reveal CEFR calibration</span>
+          `}
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Speaker Bubble -->
+          <div class="flex items-start gap-3.5 bg-etscanvas border border-etsborder rounded-xl p-4">
+            <div class="w-9 h-9 rounded-full bg-etsblue text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+              SPK
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">First Speaker</span>
+              <p class="font-academic text-base sm:text-lg text-etsnavy mt-0.5">“${item.speaker}”</p>
+            </div>
+          </div>
+
+          <!-- Positional Sentence Construction Frame -->
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Your Reply (Click any blank line to target it, or drag &amp; click tiles)</span>
+              <button onclick="resetM1Tiles()" class="text-xs font-semibold text-etsteal hover:underline">
+                Reset Tiles
+              </button>
+            </div>
+
+            <div class="min-h-[72px] p-4 sm:p-5 rounded-xl border-2 ${existingSub ? (existingSub.isCorrect ? 'border-emerald-400 bg-etssuccessbg/30' : 'border-amber-400 bg-amber-50/40') : 'border-slate-300 bg-white'} flex flex-wrap items-center gap-2 sm:gap-2.5 leading-relaxed">
+              ${sentenceSlotsHtml}
+            </div>
+          </div>
+
+          <!-- Tile Bank -->
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Word Bank (Includes 1 Distractor Tile)</span>
+            <div class="flex flex-wrap gap-2.5 p-4 rounded-xl bg-etscanvas border border-etsborder">
+              ${shuffledBank.map((word, bIdx) => {
+                const isUsed = usedBankIndices.has(bIdx);
+                const isDistractorRevealed = existingSub && word === item.distractor;
+                return `
+                  <button
+                    type="button"
+                    draggable="${!isUsed}"
+                    ondragstart="handleM1DragStart(event, 'bank', -1, ${bIdx}, '${word.replace(/'/g, "\\'")}')"
+                    onclick="addM1Tile(${bIdx}, '${word.replace(/'/g, "\\'")}')"
+                    ${isUsed ? 'disabled' : ''}
+                    class="word-tile px-4 py-2 rounded-lg border text-sm sm:text-base font-semibold ${
+                      isUsed
+                        ? 'bg-slate-200/70 border-slate-300 text-slate-400 cursor-not-allowed'
+                        : isDistractorRevealed
+                          ? 'bg-rose-50 border-rose-300 text-rose-800 line-through'
+                          : 'bg-white border-etsborder text-etsnavy hover:border-etsteal'
+                    }"
+                  >
+                    ${word}
+                  </button>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button
+              onclick="submitM1Answer()"
+              class="px-6 py-2.5 rounded-xl bg-etsteal hover:bg-teal-800 text-white text-sm font-bold shadow-sm transition"
+            >
+              ${existingSub ? 'Re-Submit & Verify' : 'Submit Answer & Reveal Calibration'}
+            </button>
+
+            ${existingSub && state.m1Index < M1_ITEMS.length - 1 ? `
+              <button
+                onclick="selectM1Item(${state.m1Index + 1})"
+                class="px-5 py-2.5 rounded-xl bg-etsnavy hover:bg-etsblue text-white text-sm font-bold shadow-sm transition"
+              >
+                Continue to Question ${state.m1Index + 2} →
+              </button>
+            ` : ''}
+          </div>
+
+          <!-- Post-Submission CEFR & Diagnostic Reveal Card -->
+          ${existingSub ? `
+            <div class="reveal-card rounded-xl border ${existingSub.isCorrect ? 'border-emerald-300 bg-etssuccessbg/70' : 'border-amber-300 bg-amber-50/80'} p-5 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-extrabold uppercase ${existingSub.isCorrect ? 'bg-etssuccess text-white' : 'bg-etsgold text-white'}">
+                    ${existingSub.isCorrect ? '✓ Accurate Structure' : 'Needs Refinement'}
+                  </span>
+                  <span class="text-sm font-bold text-etsnavy">${cefr.code} — ${cefr.title}</span>
+                </div>
+                <span class="text-xs font-semibold text-rose-700 bg-white px-2.5 py-1 rounded border border-rose-200">
+                  Distractor Word: “${item.distractor}”
+                </span>
+              </div>
+
+              <div class="bg-white/90 rounded-lg p-3.5 border border-slate-200/80 space-y-1.5 text-sm">
+                <p class="font-bold text-etsnavy">Target Reply: <span class="font-academic font-normal text-slate-900">“${item.fullSentence}”</span></p>
+                <p class="text-slate-700">${item.explanation}</p>
+                <p class="text-xs text-slate-500 pt-1 border-t border-slate-100"><strong>Why this is ${cefr.code}:</strong> ${item.levelRationale} ${cefr.nextPrompt}</p>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function selectM1Item(idx) {
+      state.m1Index = idx;
+      const item = M1_ITEMS[idx];
+      const sub = state.m1Submissions[item.id];
+      if (!sub) {
+        getM1ShuffledBank(item, true);
+      }
+      initM1GapState(item, sub);
+      renderM1();
+    }
+
+    function focusM1Gap(gapIdx) {
+      m1ActiveGapIdx = gapIdx;
+      renderM1();
+    }
+
+    function advanceActiveGap() {
+      const nextEmpty = m1GapPlacements.findIndex((p, idx) => idx > m1ActiveGapIdx && p === null);
+      if (nextEmpty !== -1) {
+        m1ActiveGapIdx = nextEmpty;
+        return;
+      }
+      const anyEmpty = m1GapPlacements.findIndex(p => p === null);
+      if (anyEmpty !== -1) {
+        m1ActiveGapIdx = anyEmpty;
+      }
+    }
+
+    function addM1Tile(bankIdx, word) {
+      // Find target gap: use m1ActiveGapIdx if empty, otherwise first available empty gap
+      let targetIdx = m1ActiveGapIdx;
+      if (targetIdx < 0 || targetIdx >= m1GapPlacements.length || m1GapPlacements[targetIdx] !== null) {
+        targetIdx = m1GapPlacements.findIndex(p => p === null);
+      }
+      if (targetIdx === -1) return; // All gaps currently filled
+
+      m1GapPlacements[targetIdx] = { bankIdx, word };
+      m1ActiveGapIdx = targetIdx;
+      advanceActiveGap();
+      renderM1();
+    }
+
+    function removeM1GapTile(gapIdx) {
+      m1GapPlacements[gapIdx] = null;
+      m1ActiveGapIdx = gapIdx;
+      renderM1();
+    }
+
+    // Drag-and-drop support between Word Bank and specific positional gap slots
+    let m1DragPayload = null;
+
+    function handleM1DragStart(event, sourceType, fromGapIdx, bankIdx, word) {
+      m1DragPayload = { sourceType, fromGapIdx, bankIdx, word };
+      if (event.dataTransfer) {
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', word);
+      }
+    }
+
+    function handleM1DragOver(event) {
+      event.preventDefault();
+      event.currentTarget.classList.add('drag-over');
+    }
+
+    function handleM1DragLeave(event) {
+      event.currentTarget.classList.remove('drag-over');
+    }
+
+    function handleM1DropOnGap(event, targetGapIdx) {
+      event.preventDefault();
+      event.currentTarget.classList.remove('drag-over');
+      if (!m1DragPayload) return;
+
+      const { sourceType, fromGapIdx, bankIdx, word } = m1DragPayload;
+      m1DragPayload = null;
+
+      if (sourceType === 'bank') {
+        m1GapPlacements[targetGapIdx] = { bankIdx, word };
+        m1ActiveGapIdx = targetGapIdx;
+        advanceActiveGap();
+        renderM1();
+      } else if (sourceType === 'gap' && fromGapIdx !== targetGapIdx) {
+        const existingAtTarget = m1GapPlacements[targetGapIdx];
+        m1GapPlacements[targetGapIdx] = { bankIdx, word };
+        m1GapPlacements[fromGapIdx] = existingAtTarget;
+        m1ActiveGapIdx = fromGapIdx;
+        renderM1();
+      }
+    }
+
+    function resetM1Tiles() {
+      const item = M1_ITEMS[state.m1Index];
+      const gaps = getItemGaps(item);
+      m1GapPlacements = new Array(gaps.length).fill(null);
+      m1ActiveGapIdx = 0;
+      getM1ShuffledBank(item, true);
+      renderM1();
+    }
+
+    function submitM1Answer() {
+      const item = M1_ITEMS[state.m1Index];
+      const gaps = getItemGaps(item);
+      const isCorrect =
+        m1GapPlacements.length === gaps.length &&
+        m1GapPlacements.every((p, i) => p !== null && p.word === gaps[i].answer);
+
+      state.m1Submissions[item.id] = {
+        placements: m1GapPlacements.map(p => (p ? { ...p } : null)),
+        isCorrect
+      };
+
+      if (state.m1Index + 1 > state.m1UnlockedMax && state.m1Index + 1 < M1_ITEMS.length) {
+        state.m1UnlockedMax = state.m1Index + 1;
+      }
+
+      updateGlobalProgressBadge();
+      renderM1();
+    }
+
+    // =========================================================================
+    // 10. MODULE 2: PRECISION EDITING & CLAUSE SYNTHESIS LAB
+    // =========================================================================
+    function renderM2() {
+      const stepper = document.getElementById('m2-stepper');
+      stepper.innerHTML = M2_ITEMS.map((item, idx) => {
+        const sub = state.m2Submissions[item.id];
+        const unlocked = idx <= state.m2UnlockedMax;
+        let cls = 'w-7 h-7 rounded-md text-xs font-bold border transition ';
+        if (idx === state.m2Index) cls += 'bg-etsnavy text-white border-etsnavy';
+        else if (sub && sub.passed) cls += 'bg-etssuccessbg text-etssuccess border-emerald-300';
+        else if (sub && !sub.passed) cls += 'bg-amber-50 text-amber-800 border-amber-300';
+        else if (unlocked) cls += 'bg-white text-etsnavy border-etsborder hover:bg-slate-100';
+        else cls += 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed';
+
+        return `<button ${unlocked ? `onclick="selectM2Item(${idx})"` : 'disabled'} class="${cls}">${idx + 1}</button>`;
+      }).join('');
+
+      const item = M2_ITEMS[state.m2Index];
+      const sub = state.m2Submissions[item.id];
+      const cefr = CEFR_META[item.level];
+      const defaultInput = sub ? sub.text : (item.mode.includes('Combine') ? '' : item.sourceText);
+
+      const card = document.getElementById('m2-card');
+      card.innerHTML = `
+        <div class="bg-etscanvas px-6 py-3.5 border-b border-etsborder flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Lab Task ${state.m2Index + 1} of ${M2_ITEMS.length}</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-white border border-etsborder text-etsteal font-semibold">${item.mode}</span>
+          </div>
+          ${sub ? `
+            <span class="text-xs font-bold px-3 py-1 rounded-full border ${cefr.badgeClass}">
+              CALIBRATION REVEALED: ${cefr.code}
+            </span>
+          ` : `
+            <span class="text-xs text-slate-400 italic">Submit revision to reveal CEFR calibration</span>
+          `}
+        </div>
+
+        <div class="p-6 space-y-5">
+          <div class="space-y-2">
+            <p class="text-sm font-semibold text-etsnavy">${item.promptInstruction}</p>
+            <div class="p-4 rounded-xl bg-etscanvas border border-etsborder font-academic text-base text-slate-900 leading-relaxed">
+              ${item.sourceText}
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="m2-editor" class="block text-xs font-bold uppercase tracking-wider text-slate-500">Your Edited / Synthesized Sentence:</label>
+            <textarea
+              id="m2-editor"
+              rows="3"
+              placeholder="Write your complete, punctuated sentence here..."
+              class="w-full rounded-xl border border-slate-300 p-4 text-base text-etsnavy focus:outline-none focus:ring-2 focus:ring-etsteal/30 focus:border-etsteal"
+            >${defaultInput}</textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <button onclick="submitM2Answer()" class="px-6 py-2.5 rounded-xl bg-etsteal hover:bg-teal-800 text-white text-sm font-bold shadow-sm transition">
+              ${sub ? 'Re-Evaluate Revision' : 'Submit Revision & Reveal Calibration'}
+            </button>
+
+            ${sub && state.m2Index < M2_ITEMS.length - 1 ? `
+              <button onclick="selectM2Item(${state.m2Index + 1})" class="px-5 py-2.5 rounded-xl bg-etsnavy hover:bg-etsblue text-white text-sm font-bold shadow-sm transition">
+                Next Lab Task (${state.m2Index + 2}/${M2_ITEMS.length}) →
+              </button>
+            ` : ''}
+          </div>
+
+          ${sub ? `
+            <div class="reveal-card rounded-xl border ${sub.passed ? 'border-emerald-300 bg-etssuccessbg/70' : 'border-amber-300 bg-amber-50/80'} p-5 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-extrabold uppercase ${sub.passed ? 'bg-etssuccess text-white' : 'bg-etsgold text-white'}">
+                    ${sub.passed ? '✓ All Structural Checks Passed' : 'Review Diagnostic Notes'}
+                  </span>
+                  <span class="text-sm font-bold text-etsnavy">${cefr.code} — ${item.focus}</span>
+                </div>
+              </div>
+
+              <!-- Itemized Rule Checks -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                ${sub.checks.map(chk => `
+                  <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-medium">
+                    <span class="${chk.ok ? 'text-etssuccess font-bold' : 'text-rose-600 font-bold'}">${chk.ok ? '✓' : '✕'}</span>
+                    <span class="text-slate-800">${chk.label}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Model Comparison -->
+              <div class="bg-white rounded-lg p-4 border border-slate-200 space-y-2 text-sm">
+                <div>
+                  <span class="text-xs font-bold uppercase text-etssuccess">Primary Model Answer:</span>
+                  <p class="font-academic text-etsnavy mt-0.5">${item.modelAnswer}</p>
+                </div>
+                ${item.altModels.length ? `
+                  <div class="text-xs text-slate-600">
+                    <span class="font-bold">Alternative Valid Structure(s):</span>
+                    <ul class="list-disc pl-5 mt-0.5 space-y-0.5">
+                      ${item.altModels.map(a => `<li>${a}</li>`).join('')}
+                    </ul>
+                  </div>
+                ` : ''}
+                <p class="text-slate-700 pt-1.5 border-t border-slate-100">${item.explanation}</p>
+                <p class="text-xs text-slate-500"><strong>Calibration Note (${cefr.code}):</strong> ${item.levelRationale}</p>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function selectM2Item(idx) {
+      state.m2Index = idx;
+      renderM2();
+    }
+
+    function submitM2Answer() {
+      const item = M2_ITEMS[state.m2Index];
+      const raw = document.getElementById('m2-editor').value.trim();
+      const lower = raw.toLowerCase();
+
+      const checks = [];
+
+      // Check 1: Minimum sentence completeness & terminal punctuation
+      const hasEndPunct = /[.!?]$/.test(raw) && raw.split(/\s+/).length >= 6;
+      checks.push({
+        label: 'Complete sentence with terminal punctuation (. ! ?)',
+        ok: hasEndPunct
+      });
+
+      // Check 2: Required subordinators if synthesis task
+      if (item.requiredSubordinators.length > 0) {
+        const hasSub = item.requiredSubordinators.some(sub => new RegExp(`\\b${sub}\\b`, 'i').test(lower));
+        checks.push({
+          label: `Includes target subordinator (${item.requiredSubordinators.join(' / ')})`,
+          ok: hasSub
+        });
+
+        // If sentence starts with subordinator, verify comma exists
+        const startsWithSub = item.requiredSubordinators.some(sub => lower.startsWith(sub + ' '));
+        if (startsWithSub) {
+          checks.push({
+            label: 'Comma placed after introductory dependent clause',
+            ok: raw.includes(',')
+          });
+        }
+      }
+
+      // Check 3: Must contain target fix tokens
+      if (item.mustContainAny.length > 0) {
+        const hasTarget = item.mustContainAny.some(tok => lower.includes(tok.toLowerCase()));
+        checks.push({
+          label: 'Target grammatical repair applied accurately',
+          ok: hasTarget
+        });
+      }
+
+      // Check 4: Must avoid original ungrammatical strings
+      if (item.mustAvoidSubstrings.length > 0) {
+        const avoided = item.mustAvoidSubstrings.every(bad => !lower.includes(bad.toLowerCase()));
+        checks.push({
+          label: 'Original agreement / comma-splice flaw removed',
+          ok: avoided
+        });
+      }
+
+      const passed = checks.every(c => c.ok);
+      state.m2Submissions[item.id] = { text: raw, checks, passed };
+
+      if (state.m2Index + 1 > state.m2UnlockedMax && state.m2Index + 1 < M2_ITEMS.length) {
+        state.m2UnlockedMax = state.m2Index + 1;
+      }
+
+      updateGlobalProgressBadge();
+      renderM2();
+    }
+
+    // =========================================================================
+    // 11. MODULE 3: WRITE AN EMAIL (OFFICIAL TASK 2 • SPLIT-SCREEN)
+    // =========================================================================
+    function renderM3() {
+      const stepper = document.getElementById('m3-stepper');
+      stepper.innerHTML = M3_SCENARIOS.map((sc, idx) => {
+        const sub = state.m3Submissions[sc.id];
+        const unlocked = idx <= state.m3UnlockedMax;
+        let cls = 'px-3 py-1 rounded-lg text-xs font-bold border transition ';
+        if (idx === state.m3Index) cls += 'bg-etsnavy text-white border-etsnavy';
+        else if (sub) cls += 'bg-etssuccessbg text-etssuccess border-emerald-300';
+        else if (unlocked) cls += 'bg-white text-etsnavy border-etsborder hover:bg-slate-100';
+        else cls += 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed';
+
+        return `<button ${unlocked ? `onclick="selectM3Scenario(${idx})"` : 'disabled'} class="${cls}">Scenario ${idx + 1}</button>`;
+      }).join('');
+
+      const sc = M3_SCENARIOS[state.m3Index];
+      const sub = state.m3Submissions[sc.id];
+      const cefr = CEFR_META[sc.level];
+
+      const ws = document.getElementById('m3-workspace');
+      ws.innerHTML = `
+        <!-- Left Pane: Official TOEFL Prompt Card -->
+        <div class="lg:col-span-5 bg-white border border-etsborder rounded-xl p-5 shadow-sm space-y-4 h-fit">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">Prompt Brief</span>
+            ${sub ? `<span class="text-xs font-bold px-2.5 py-0.5 rounded-full border ${cefr.badgeClass}">${cefr.code}</span>` : `<span class="text-xs text-slate-400">Tier Hidden</span>`}
+          </div>
+
+          <p class="text-sm text-slate-800 leading-relaxed">${sc.situation}</p>
+
+          <div class="bg-etscanvas border border-etsborder rounded-lg p-3.5 text-xs space-y-1">
+            <div class="font-bold text-etsnavy">${sc.recipient}</div>
+            <div class="text-slate-600">${sc.subject}</div>
+          </div>
+
+          <div class="space-y-2 text-sm">
+            <p class="font-bold text-etsnavy">In your email, do the following:</p>
+            <ul class="list-disc pl-5 space-y-1.5 text-slate-700">
+              ${sc.bullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="bg-amber-50/70 border border-amber-200 rounded-lg p-3 text-xs text-amber-950">
+            <strong>Grammar Focus:</strong> Include at least <strong>2 complex sentences</strong> (<em>because, although, when, if, while, provided that</em>) and check every comma boundary.
+          </div>
+        </div>
+
+        <!-- Right Pane: Test Editor + Post-Submission Analysis -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Response Editor</span>
+              <span id="m3-word-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-etscanvas border border-etsborder text-etsnavy">
+                0 words (Target: ${sc.minWords}+)
+              </span>
+            </div>
+
+            <textarea
+              id="m3-editor"
+              rows="10"
+              oninput="updateM3WordCount()"
+              placeholder="Dear ...&#10;&#10;Write your complete email addressing all three points..."
+              class="w-full rounded-xl border border-slate-300 p-4 text-base text-etsnavy focus:outline-none focus:ring-2 focus:ring-etsteal/30 focus:border-etsteal leading-relaxed"
+            >${sub ? sub.text : ''}</textarea>
+
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <button onclick="submitM3Email()" class="px-6 py-2.5 rounded-xl bg-etsteal hover:bg-teal-800 text-white text-sm font-bold shadow-sm transition">
+                ${sub ? 'Re-Analyze Email' : 'Submit Email & Reveal Calibration'}
+              </button>
+
+              ${sub && state.m3Index < M3_SCENARIOS.length - 1 ? `
+                <button onclick="selectM3Scenario(${state.m3Index + 1})" class="px-5 py-2.5 rounded-xl bg-etsnavy hover:bg-etsblue text-white text-sm font-bold shadow-sm transition">
+                  Unlock Scenario ${state.m3Index + 2} →
+                </button>
+              ` : ''}
+            </div>
+          </div>
+
+          ${sub ? `
+            <div class="reveal-card bg-white border border-emerald-300 rounded-xl p-5 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-etssuccess">Automated Structural &amp; Grammar Diagnostic</span>
+                  <h4 class="text-base font-bold text-etsnavy">${cefr.code} — ${cefr.title}</h4>
+                </div>
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-etssuccessbg text-etssuccess border border-emerald-200">
+                  Subordinators Used: ${sub.metrics.subCount}
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Word Count</span>
+                  <strong class="text-sm text-etsnavy">${sub.metrics.words} words</strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${sub.metrics.words >= sc.minWords ? '✓ Meets length target' : 'Expand details slightly'}</span>
+                </div>
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Complex Clauses</span>
+                  <strong class="text-sm text-etsnavy">${sub.metrics.subCount} detected</strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${sub.metrics.subCount >= 2 ? '✓ Strong syntactic variety' : 'Aim for ≥ 2 subordinators'}</span>
+                </div>
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Comma Splice Check</span>
+                  <strong class="text-sm ${sub.metrics.spliceWarnings === 0 ? 'text-etssuccess' : 'text-amber-700'}">
+                    ${sub.metrics.spliceWarnings === 0 ? 'No splice traps' : `${sub.metrics.spliceWarnings} potential splice`}
+                  </strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">Verify commas before pronouns</span>
+                </div>
+              </div>
+
+              <!-- Annotated High-Scoring Model Email -->
+              <div class="bg-etscanvas border border-etsborder rounded-xl p-4 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Annotated Model Response</span>
+                  <div class="flex items-center gap-2 text-[11px]">
+                    <span class="hl-sub">Subordinator</span>
+                    <span class="hl-comma">Boundary Comma</span>
+                    <span class="hl-agree">Agreement Anchor</span>
+                  </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-slate-200 text-sm text-slate-800 leading-relaxed">
+                  ${sc.modelAnnotated}
+                </div>
+                <p class="text-xs text-slate-500"><strong>Calibration Rationale:</strong> ${sc.levelRationale}</p>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+      updateM3WordCount();
+    }
+
+    function selectM3Scenario(idx) {
+      state.m3Index = idx;
+      renderM3();
+    }
+
+    function updateM3WordCount() {
+      const editor = document.getElementById('m3-editor');
+      const badge = document.getElementById('m3-word-badge');
+      if (!editor || !badge) return;
+      const sc = M3_SCENARIOS[state.m3Index];
+      const words = editor.value.trim() ? editor.value.trim().split(/\s+/).length : 0;
+      badge.textContent = `${words} words (Target: ${sc.minWords}+)`;
+    }
+
+    function submitM3Email() {
+      const sc = M3_SCENARIOS[state.m3Index];
+      const text = document.getElementById('m3-editor').value.trim();
+      const metrics = analyzeConnectedWriting(text);
+
+      state.m3Submissions[sc.id] = { text, metrics };
+
+      if (state.m3Index + 1 > state.m3UnlockedMax && state.m3Index + 1 < M3_SCENARIOS.length) {
+        state.m3UnlockedMax = state.m3Index + 1;
+      }
+
+      updateGlobalProgressBadge();
+      renderM3();
+    }
+
+    // =========================================================================
+    // 12. MODULE 4: WRITE FOR AN ACADEMIC DISCUSSION (OFFICIAL TASK 3)
+    // =========================================================================
+    function renderM4() {
+      const stepper = document.getElementById('m4-stepper');
+      stepper.innerHTML = M4_SEMINARS.map((sem, idx) => {
+        const sub = state.m4Submissions[sem.id];
+        const unlocked = idx <= state.m4UnlockedMax;
+        let cls = 'px-3 py-1 rounded-lg text-xs font-bold border transition ';
+        if (idx === state.m4Index) cls += 'bg-etsnavy text-white border-etsnavy';
+        else if (sub) cls += 'bg-etssuccessbg text-etssuccess border-emerald-300';
+        else if (unlocked) cls += 'bg-white text-etsnavy border-etsborder hover:bg-slate-100';
+        else cls += 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed';
+
+        return `<button ${unlocked ? `onclick="selectM4Seminar(${idx})"` : 'disabled'} class="${cls}">Seminar ${idx + 1}</button>`;
+      }).join('');
+
+      const sem = M4_SEMINARS[state.m4Index];
+      const sub = state.m4Submissions[sem.id];
+      const cefr = CEFR_META[sem.level];
+
+      const ws = document.getElementById('m4-workspace');
+      ws.innerHTML = `
+        <!-- Left Pane: Professor & Peer Discussion Board -->
+        <div class="lg:col-span-5 bg-white border border-etsborder rounded-xl p-5 shadow-sm space-y-4 h-fit">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-etsteal">${sem.course}</span>
+            ${sub ? `<span class="text-xs font-bold px-2.5 py-0.5 rounded-full border ${cefr.badgeClass}">${cefr.code}</span>` : `<span class="text-xs text-slate-400">Tier Hidden</span>`}
+          </div>
+
+          <!-- Professor Post -->
+          <div class="bg-etscanvas border border-etsborder rounded-xl p-4 space-y-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-etsnavy text-white flex items-center justify-center text-xs font-bold">PR</div>
+              <div>
+                <div class="text-xs font-bold text-etsnavy">${sem.professor}</div>
+                <div class="text-[11px] text-slate-500">Course Instructor</div>
+              </div>
+            </div>
+            <p class="font-academic text-sm text-etsnavy leading-relaxed">${sem.question}</p>
+          </div>
+
+          <!-- Peer Posts -->
+          <div class="space-y-3">
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-white space-y-1">
+              <div class="text-xs font-bold text-etsblue">${sem.studentA.name} (Classmate)</div>
+              <p class="text-xs text-slate-700 leading-relaxed">${sem.studentA.text}</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-white space-y-1">
+              <div class="text-xs font-bold text-etsteal">${sem.studentB.name} (Classmate)</div>
+              <p class="text-xs text-slate-700 leading-relaxed">${sem.studentB.text}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Pane: Student Post Editor & TOEFL Band Estimator -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="bg-white border border-etsborder rounded-xl p-5 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Your Discussion Contribution</span>
+              <span id="m4-word-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-etscanvas border border-etsborder text-etsnavy">
+                0 / 100+ words
+              </span>
+            </div>
+
+            <!-- Live Word Meter Bar -->
+            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+              <div id="m4-word-bar" class="bg-etsteal h-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <textarea
+              id="m4-editor"
+              rows="10"
+              oninput="updateM4WordCount()"
+              placeholder="State your position clearly, engage with at least one classmate's point, provide a concrete example, and use at least two complex sentences..."
+              class="w-full rounded-xl border border-slate-300 p-4 text-base text-etsnavy focus:outline-none focus:ring-2 focus:ring-etsteal/30 focus:border-etsteal leading-relaxed"
+            >${sub ? sub.text : ''}</textarea>
+
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <button onclick="submitM4Discussion()" class="px-6 py-2.5 rounded-xl bg-etsteal hover:bg-teal-800 text-white text-sm font-bold shadow-sm transition">
+                ${sub ? 'Re-Evaluate Post' : 'Submit Post & Reveal TOEFL Band Calibration'}
+              </button>
+
+              ${sub && state.m4Index < M4_SEMINARS.length - 1 ? `
+                <button onclick="selectM4Seminar(${state.m4Index + 1})" class="px-5 py-2.5 rounded-xl bg-etsnavy hover:bg-etsblue text-white text-sm font-bold shadow-sm transition">
+                  Unlock Seminar ${state.m4Index + 2} →
+                </button>
+              ` : ''}
+            </div>
+          </div>
+
+          ${sub ? `
+            <div class="reveal-card bg-white border border-emerald-300 rounded-xl p-5 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-etssuccess">TOEFL Writing Band Calibration</span>
+                  <h4 class="text-base font-bold text-etsnavy">${cefr.code} — ${cefr.title}</h4>
+                </div>
+                <div class="px-3.5 py-1.5 rounded-xl bg-etsnavy text-white text-xs font-extrabold">
+                  Estimated Task Band: ${sub.metrics.estimatedBand} / 6.0
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Word Count</span>
+                  <strong class="text-sm text-etsnavy">${sub.metrics.words} words</strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${sub.metrics.words >= 100 ? '✓ Meets 100-word benchmark' : `${100 - sub.metrics.words} words below 100`}</span>
+                </div>
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Subordinating Clauses</span>
+                  <strong class="text-sm text-etsnavy">${sub.metrics.subCount} detected</strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${sub.metrics.subCount >= 2 ? '✓ Complex syntax demonstrated' : 'Add more causal/concessive clauses'}</span>
+                </div>
+                <div class="p-3 rounded-lg bg-etscanvas border border-etsborder">
+                  <span class="text-slate-500 block">Comma Splice Check</span>
+                  <strong class="text-sm ${sub.metrics.spliceWarnings === 0 ? 'text-etssuccess' : 'text-amber-700'}">
+                    ${sub.metrics.spliceWarnings === 0 ? 'Clean clause boundaries' : `${sub.metrics.spliceWarnings} potential splice`}
+                  </strong>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">Avoid comma + pronoun joins</span>
+                </div>
+              </div>
+
+              <!-- Highlighted User Subordinators -->
+              <div class="bg-amber-50/60 border border-amber-200 rounded-xl p-4 space-y-1.5">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-900">Your Draft — Subordinator &amp; Boundary Scan</span>
+                <p class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">${sub.metrics.highlightedHtml}</p>
+              </div>
+
+              <!-- Annotated Band 6 Exemplar -->
+              <div class="bg-etscanvas border border-etsborder rounded-xl p-4 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-xs font-bold uppercase tracking-wider text-etsnavy">Annotated High-Scoring Sample Post</span>
+                  <div class="flex items-center gap-2 text-[11px]">
+                    <span class="hl-sub">Subordinator</span>
+                    <span class="hl-comma">Boundary Comma</span>
+                    <span class="hl-agree">Agreement Anchor</span>
+                  </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-slate-200 text-sm text-slate-800 leading-relaxed">
+                  ${sem.modelAnnotated}
+                </div>
+                <p class="text-xs text-slate-500"><strong>Calibration Rationale:</strong> ${sem.levelRationale}</p>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+      updateM4WordCount();
+    }
+
+    function selectM4Seminar(idx) {
+      state.m4Index = idx;
+      renderM4();
+    }
+
+    function updateM4WordCount() {
+      const editor = document.getElementById('m4-editor');
+      const badge = document.getElementById('m4-word-badge');
+      const bar = document.getElementById('m4-word-bar');
+      if (!editor || !badge || !bar) return;
+      const words = editor.value.trim() ? editor.value.trim().split(/\s+/).length : 0;
+      badge.textContent = `${words} / 100+ words`;
+      const pct = Math.min(100, Math.round((words / 115) * 100));
+      bar.style.width = `${pct}%`;
+      bar.className = words >= 100 ? 'bg-etssuccess h-full transition-all duration-300' : 'bg-etsteal h-full transition-all duration-300';
+    }
+
+    function submitM4Discussion() {
+      const sem = M4_SEMINARS[state.m4Index];
+      const text = document.getElementById('m4-editor').value.trim();
+      const metrics = analyzeConnectedWriting(text);
+
+      state.m4Submissions[sem.id] = { text, metrics };
+
+      if (state.m4Index + 1 > state.m4UnlockedMax && state.m4Index + 1 < M4_SEMINARS.length) {
+        state.m4UnlockedMax = state.m4Index + 1;
+      }
+
+      updateGlobalProgressBadge();
+      renderM4();
+    }
+
+    // Shared Connected-Writing Linguistic Analyzer
+    function analyzeConnectedWriting(rawText) {
+      const words = rawText ? rawText.split(/\s+/).length : 0;
+      const subRegex = /\b(because|although|though|even though|while|whereas|when|whenever|if|unless|provided that|since|before|after)\b/gi;
+      let subCount = 0;
+
+      const escaped = rawText
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      const highlightedHtml = escaped.replace(subRegex, match => {
+        subCount++;
+        return `<span class="hl-sub">${match}</span>`;
+      });
+
+      // Heuristic check for potential comma splices (comma followed directly by subject pronoun or conjunctive adverb without FANBOYS)
+      const spliceRegex = /,\s+(he|she|it|they|we|this|these|however|therefore|moreover|furthermore)\b/gi;
+      const spliceMatches = rawText.match(spliceRegex);
+      const spliceWarnings = spliceMatches ? spliceMatches.length : 0;
+
+      // Estimate TOEFL Band (1.0 - 6.0)
+      let band = 3.0;
+      if (words >= 100) band += 1.0;
+      else if (words >= 75) band += 0.5;
+      if (subCount >= 3) band += 1.0;
+      else if (subCount >= 2) band += 0.7;
+      else if (subCount === 1) band += 0.3;
+      if (spliceWarnings === 0 && words >= 60) band += 0.5;
+      if (words >= 120 && subCount >= 3 && spliceWarnings === 0) band = 6.0;
+      band = Math.min(6.0, Math.max(1.0, Math.round(band * 2) / 2)).toFixed(1);
+
+      return {
+        words,
+        subCount,
+        spliceWarnings,
+        highlightedHtml: highlightedHtml || '<span class="italic text-slate-400">No text submitted.</span>',
+        estimatedBand: band
+      };
+    }
+
+    // =========================================================================
+    // 13. OFFICIAL SCORE REPORT & PORTFOLIO EXPORT
+    // =========================================================================
+    function getHighestTierForModule(items, submissionsMap) {
+      let highest = 'Not Calibrated';
+      const order = { B1: 1, B2: 2, C1: 3 };
+      items.forEach(it => {
+        if (submissionsMap[it.id]) {
+          if (highest === 'Not Calibrated' || order[it.level] > order[highest]) {
+            highest = it.level;
+          }
+        }
+      });
+      return highest;
+    }
+
+    function openScoreReport() {
+      const m1Done = Object.keys(state.m1Submissions).length;
+      const m1Correct = Object.values(state.m1Submissions).filter(s => s.isCorrect).length;
+      const m2Done = Object.keys(state.m2Submissions).length;
+      const m2Passed = Object.values(state.m2Submissions).filter(s => s.passed).length;
+      const m3Done = Object.keys(state.m3Submissions).length;
+      const m4Done = Object.keys(state.m4Submissions).length;
+
+      const m1Tier = getHighestTierForModule(M1_ITEMS, state.m1Submissions);
+      const m2Tier = getHighestTierForModule(M2_ITEMS, state.m2Submissions);
+      const m3Tier = getHighestTierForModule(M3_SCENARIOS, state.m3Submissions);
+      const m4Tier = getHighestTierForModule(M4_SEMINARS, state.m4Submissions);
+
+      const m4Bands = Object.values(state.m4Submissions).map(s => parseFloat(s.metrics.estimatedBand));
+      const avgBand = m4Bands.length
+        ? (m4Bands.reduce((a, b) => a + b, 0) / m4Bands.length).toFixed(1)
+        : '—';
+
+      const body = document.getElementById('score-report-content');
+      body.innerHTML = `
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-4 rounded-xl bg-etscanvas border border-etsborder">
+            <span class="text-[11px] font-bold uppercase text-slate-500">Items Completed</span>
+            <div class="text-2xl font-extrabold text-etsnavy mt-1">${m1Done + m2Done + m3Done + m4Done} <span class="text-xs font-normal text-slate-500">/ 21</span></div>
+          </div>
+          <div class="p-4 rounded-xl bg-etscanvas border border-etsborder">
+            <span class="text-[11px] font-bold uppercase text-slate-500">Build a Sentence</span>
+            <div class="text-2xl font-extrabold text-etsteal mt-1">${m1Correct}/${m1Done || 0} <span class="text-xs font-normal text-slate-500">(${m1Tier})</span></div>
+          </div>
+          <div class="p-4 rounded-xl bg-etscanvas border border-etsborder">
+            <span class="text-[11px] font-bold uppercase text-slate-500">Editing &amp; Synthesis</span>
+            <div class="text-2xl font-extrabold text-etsteal mt-1">${m2Passed}/${m2Done || 0} <span class="text-xs font-normal text-slate-500">(${m2Tier})</span></div>
+          </div>
+          <div class="p-4 rounded-xl bg-etsnavy text-white">
+            <span class="text-[11px] font-bold uppercase text-teal-300">Discussion Band Est.</span>
+            <div class="text-2xl font-extrabold mt-1">${avgBand} <span class="text-xs font-normal text-slate-300">/ 6.0</span></div>
+          </div>
+        </div>
+
+        <div class="border border-etsborder rounded-xl overflow-hidden">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-etscanvas border-b border-etsborder text-xs font-bold uppercase text-slate-600">
+                <th class="py-3 px-4">TOEFL iBT Module</th>
+                <th class="py-3 px-4">Core Grammar Focus</th>
+                <th class="py-3 px-4">Progress</th>
+                <th class="py-3 px-4 text-right">Highest CEFR Tier Reached</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-etsborder">
+              <tr>
+                <td class="py-3 px-4 font-bold text-etsnavy">1. Build a Sentence</td>
+                <td class="py-3 px-4 text-slate-600 text-xs">Clause boundaries, auxiliary order, agreement traps</td>
+                <td class="py-3 px-4 font-medium">${m1Done} / 9 completed</td>
+                <td class="py-3 px-4 text-right font-bold text-etsteal">${m1Tier}</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-etsnavy">2. Precision Editing &amp; Synthesis</td>
+                <td class="py-3 px-4 text-slate-600 text-xs">Comma splices, conjunctive adverbs, subordination</td>
+                <td class="py-3 px-4 font-medium">${m2Done} / 6 completed</td>
+                <td class="py-3 px-4 text-right font-bold text-etsteal">${m2Tier}</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-etsnavy">3. Write an Email</td>
+                <td class="py-3 px-4 text-slate-600 text-xs">Register control, task coverage, complex sentences</td>
+                <td class="py-3 px-4 font-medium">${m3Done} / 3 completed</td>
+                <td class="py-3 px-4 text-right font-bold text-etsteal">${m3Tier}</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-etsnavy">4. Academic Discussion</td>
+                <td class="py-3 px-4 text-slate-600 text-xs">Argumentation, peer synthesis, Band 1–6 accuracy</td>
+                <td class="py-3 px-4 font-medium">${m4Done} / 3 completed</td>
+                <td class="py-3 px-4 text-right font-bold text-etsteal">${m4Tier}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-etscanvas border border-etsborder rounded-xl p-4 text-xs text-slate-700 space-y-1">
+          <div class="font-bold text-etsnavy uppercase tracking-wider">How to Use This Report</div>
+          <p>Download or copy this diagnostic portfolio to share with your instructor. Any item you found challenging at B2 or C1 can be revisited directly from the top stepper tabs.</p>
+        </div>
+      `;
+
+      document.getElementById('report-toast').textContent = '';
+      document.getElementById('score-modal').classList.remove('hidden');
+    }
+
+    function closeScoreReport() {
+      document.getElementById('score-modal').classList.add('hidden');
+    }
+
+    function buildPortfolioText() {
+      const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const m1Tier = getHighestTierForModule(M1_ITEMS, state.m1Submissions);
+      const m2Tier = getHighestTierForModule(M2_ITEMS, state.m2Submissions);
+      const m3Tier = getHighestTierForModule(M3_SCENARIOS, state.m3Submissions);
+      const m4Tier = getHighestTierForModule(M4_SEMINARS, state.m4Submissions);
+
+      const lines = [
+        '======================================================================',
+        'INTEGRATED LANGUAGE SERVICES — TOEFL iBT® WRITING PRACTICE',
+        'STUDENT ASSESSMENT & CEFR CALIBRATION PORTFOLIO',
+        '======================================================================',
+        `Date: ${dateStr}`,
+        `Session Clock: ${document.getElementById('test-clock').textContent}`,
+        '',
+        'MODULE CALIBRATION SUMMARY:',
+        `• Module 1 (Build a Sentence): ${Object.keys(state.m1Submissions).length}/9 done | Highest Tier: ${m1Tier}`,
+        `• Module 2 (Editing & Synthesis): ${Object.keys(state.m2Submissions).length}/6 done | Highest Tier: ${m2Tier}`,
+        `• Module 3 (Write an Email): ${Object.keys(state.m3Submissions).length}/3 done | Highest Tier: ${m3Tier}`,
+        `• Module 4 (Academic Discussion): ${Object.keys(state.m4Submissions).length}/3 done | Highest Tier: ${m4Tier}`,
+        '',
+        'SUBMITTED EMAIL RESPONSES:',
+        '----------------------------------------------------------------------'
+      ];
+
+      M3_SCENARIOS.forEach(sc => {
+        if (state.m3Submissions[sc.id]) {
+          lines.push(`[${sc.level}] ${sc.title} (${state.m3Submissions[sc.id].metrics.words} words):`);
+          lines.push(state.m3Submissions[sc.id].text);
+          lines.push('');
+        }
+      });
+
+      lines.push('SUBMITTED ACADEMIC DISCUSSION POSTS:');
+      lines.push('----------------------------------------------------------------------');
+      M4_SEMINARS.forEach(sem => {
+        if (state.m4Submissions[sem.id]) {
+          const s = state.m4Submissions[sem.id];
+          lines.push(`[${sem.level}] ${sem.course} | Band Est: ${s.metrics.estimatedBand}/6.0 (${s.metrics.words} words):`);
+          lines.push(s.text);
+          lines.push('');
+        }
+      });
+
+      lines.push('======================================================================');
+      return lines.join('\n');
+    }
+
+    function copySummaryToClipboard() {
+      const txt = buildPortfolioText();
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        document.getElementById('report-toast').textContent = '✓ Portfolio copied to clipboard!';
+      } catch (e) {
+        document.getElementById('report-toast').textContent = 'Unable to auto-copy; please download the .TXT file.';
+      }
+      document.body.removeChild(ta);
+    }
+
+    function downloadStudentPortfolio() {
+      const txt = buildPortfolioText();
+      const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ILS-TOEFL-Student-Portfolio-${new Date().toISOString().slice(0, 10)}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
